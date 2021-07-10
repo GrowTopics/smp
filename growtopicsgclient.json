@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "growtopicsmp",
+  "private_key_id": "adecd182c087e6bd71eb50e3f737f071542442cb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDNo8j6XA++C6Ap\ni9QNTfjxQWQNALxW88v1WLkg4WsziNLp+3q1tLII3/p4psvDc34kdI+pMJaRuRUd\nuf+HtyJ0W6ZzVQwUus6ASweZmGfTUXRVpPw+GoaAZkD1xqdkXOWnbTBvBG6UjCV8\n3goVwcFje5Pc2WJXFDz4ZXYkGHwr0YvJp9IEQzlh6CmiD0KdjnoNHqf1cKWBvUDv\nGbD3fRd+/0gl8ZDpW2J0X/DOIUhnDH4CfFA965fdoQUkXcQvyR9wtItyAGrokvqJ\n8juKAbb2GlfBv5vCuiWE8uBDLG+D1pWzT8Xz3Yh06+g9hGk0mhvHsCtWUD/WQuxT\nfZagRzz/AgMBAAECggEADhnjGDfj5HZLn021Vsw3++MuBy47vAKvw703xKdwgHIr\ndFwISBmB89XYCRn28woiZkGP8Fwilw+IASfV++p09GGsglAcqfc9XdLHTKMEy5rU\nTWMo4OFUw80/OxtKMzmjjd2Q6qv1IT6S+4MGUgOdTUMWGpjVg38hxy698S+0pBR0\n693rL1W6ahQZ3LCBwlgE7RV1fJk5jiBlyyYPE6Hkd8rjkbFZpAqB1vtf9Vfo2+Ck\n63CxE5I3XFeeTwEPMoRw1rpAjy8UdWozZgvb0rwOWOZIVQLdl8ftOPcuSCAX/FHv\nzEQbCH3Eekf+dJ+gCZZvdoVKxkwsT/+1GtX/VH07kQKBgQDyVBZGzYmzvMzg0LTt\nIyjeP/hhRt+xMQv/44oEWkVc5NPPx6hcq72D1Vrcjkb+tfbfZqg2YWjidnHOPP5Y\nfZcA4GLN8fsQGdKuB5xk8dIoINSiy0fCHT0jfTIX0wJpbfrKOwoOgoVPfgsIlg8P\nqRyKi3/OlKv2ezth+kZHs2ue7QKBgQDZPc8ermmr77N/dYEoipZpftueoeEm79rX\nzMtcT7C3bh2bbO42U3uVZLuKd6+NffVVAVysXCbxLzBuPPhNh2D7LdJoUBO676On\n+wd2SkPGmq0y5TJRk9tI1/5ZDe91JKyB3BSJ82geEv3/Z8RhG+0ol9v7BzLkSkfZ\nCv9b/9oiGwKBgGkptrUpU54NzDewOyRCQuUYi9jjYgZKi7OT8nxrFHj40Tb1pYn5\n+fexaooWsJavLyDKMyvOYC8PSdo/u/15G0QFHLvVTKgzHKvrn6JrE1HY1Y6Ee3Kx\nL6wsE8YlC4HneZOzxWyAlgvmXjFutcCNGlbBrUhgWrRPzHh7nW5WXdkNAoGAUpuf\nXAJkqn3u2sP7BkiU467aoprZ/C1vIWp91i9zen0EAytL9hqOvwNcEU5r0jkYhmeL\nLvunz0TrfK/wl8KoDTuibAovRoGD0QezEbcxyJ7ex6DCHqVD2JJR5NlYuknk00i2\nArMtX2pHbcyur2KoLyx3+SAGqSrZ4V2+NuS2tQsCgYAbEq7khZtWVEqpSim1qa9S\nKIsVGGVTa0jaozDn3ArdAdW5Lv1j6eDuBH5Ow0wY87kIYrMpyoTyj9g6VVNusSBi\nqZTEVg6niBHy8V35LmI2l+jTwJJpz5hX285nRiZQw24SQ3hgt3WPaqMwXuqy9rmb\n3lEHAnaoNxSxXOdwqhVVPw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "discordbot@growtopicsmp.iam.gserviceaccount.com",
+  "client_id": "106704260189183061807",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/discordbot%40growtopicsmp.iam.gserviceaccount.com"
+}
