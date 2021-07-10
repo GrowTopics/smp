@@ -2,7 +2,7 @@ from discord import Colour as C
 #Colour Functions. Use as such: C.colourname()    Example: C.blue()
 #Available Colours: https://discordpy.readthedocs.io/en/latest/api.html#colour
 
-prefix = "|"
+prefix = ".."
 
 #Shown when bot is restarted
 restart_embed = {
