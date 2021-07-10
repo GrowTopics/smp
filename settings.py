@@ -27,7 +27,7 @@ help_embed = {
             "SMP Commands":
                 {
                     f"{prefix}join" : "Request to Join the SMP. Doing this multiple time will not make a difference. **(Coming Soon)**",
-                    f"{prefix}vault <user_identifier>" : "Check the **Diamond Count** of a user or do `me` to check yourself"
+                    f"{prefix}vault <@user | me>" : "Check the **Diamond Count** of a user or do `me` to check yourself"
                 }
         },
     "footer" : "Made by @Fishball_Noodles",
