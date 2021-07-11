@@ -7,6 +7,7 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
+    return
     await show_restart(client)
 
 @client.event
@@ -24,14 +25,45 @@ async def help(ctx):
 async def ping(ctx):
     await ctx.send(embed=discord.Embed(title=settings.ping_embed["title"],description=settings.ping_embed["content"].replace("%%ping%%",str(round(client.latency*1000,2))),colour=settings.ping_embed["colour"]))
 
-@client.command(name='vault',aliases=['check','balance','bal','p','profile'])
+@client.command('join')
+async def req_join(ctx):
+    async with ctx.typing():
+        sheet = get_sheet("Cache")
+        data = get_sheet("Vault")
+        print("Sheet>>>",sheet)
+        wait_list = sheet.acell('B1').value.split(",")
+        print(wait_list)
+        if str(ctx.author.id) in wait_list:
+            await ctx.send("Join Request has Failed. You have Already Requested..")
+            return
+        elif str(ctx.author.id) in data.col_values(1):
+            await ctx.send(f"You are **already** part of the SMP\nDo `{settings.prefix}profile me` to check your profile")
+            return
+        wait_list.append(str(ctx.author.id))
+        sheet.update("B1",",".join(wait_list))
+    embed = discord.Embed(
+        title = settings.join_request_embed["title"],
+        description = settings.join_request_embed["content"].replace("%%username%%",ctx.author.name).replace("%%userid%%",str(ctx.author.id)),
+        colour = settings.join_request_embed["colour"]
+    )
+    embed.set_footer(text=settings.join_request_embed["footer"].replace("%%server_time%%",datetime.datetime.now().strftime("%c")))
+    await client.get_channel(settings.join_request_embed["channel_id"]).send(embed=embed)
+    embed = discord.Embed(
+        title = settings.join_response_embed["title"],
+        description = settings.join_response_embed["content"],
+        colour = settings.join_response_embed["colour"]
+    )
+    embed.set_footer(text=settings.join_response_embed["footer"].replace("%%server_time%%",datetime.datetime.now().strftime("%c")))
+    await ctx.send(embed=embed)
+
+@client.command(name='vault',aliases=['balance','bal','p','profile'])
 async def check_balance(ctx,useriden=None):
     async with ctx.typing():
         if useriden == None:
             await ctx.send("No User Given")
             return
 
-        sheet = get_sheet().get_all_values()[1:]
+        sheet = get_sheet("Vault").get_all_values()[1:]
         userids = [i[0] for i in sheet]
         mc_usernames = [i[1] for i in sheet]
         dmnd_counts = [i[2] for i in sheet]
@@ -62,4 +94,5 @@ async def check_balance(ctx,useriden=None):
         embed.set_footer(text=settings.profile_embed['footer'].replace("%%userid%%",str(userid)))
     await ctx.send(embed=embed)
 
-client.run(os.getenv('token'))
+client.run("ODYzMzU0MTcwODQ5MjMwODQ4.YOlrOg.vQ6YLIxVnEouNdD271tKXiW9Gx8")
+#client.run(os.getenv('token'))

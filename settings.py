@@ -1,6 +1,7 @@
 from discord import Colour as C
 #Colour Functions. Use as such: C.colourname()    Example: C.blue()
 #Available Colours: https://discordpy.readthedocs.io/en/latest/api.html#colour
+#Use hex coding as such: C(0x<hex code>)   Example: C(0xFFFFFF)
 
 prefix = ".."
 
@@ -47,4 +48,21 @@ profile_embed = {
     "content" : "**Diamond Count** : `%%diamond_count%%`",
     "colour" : C.purple(),
     "footer" : "User ID: %%userid%%"
+}
+
+#This embed is a response  when user successfully requests to Join TheSMP
+join_response_embed = {
+    "title" : "✅ Your Request has Been Sent!",
+    "content" : "Please wait patiently before an admin **Verifies and Accepts** you in the SMP",
+    "colour" : C.green(),
+    "footer" : "Time of Request: %%server_time%%"
+}
+
+#Join Message Shows when user requests to Join TheSMP
+join_request_embed = {
+    "title" : "SMP Join Request",
+    "content" : "%%username%% `%%userid%%` has requested to join the SMP",
+    "colour" : C.green(),
+    "footer" : "Time of Request: %%server_time%%",
+    "channel_id" : 845476323005956116
 }

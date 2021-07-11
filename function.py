@@ -21,7 +21,7 @@ async def show_restart(client):
         colour = settings.restart_embed["colour"]
     ).set_footer(text=settings.restart_embed["footer"].replace("%%server_time%%",datetime.datetime.now().strftime("%H:%M:%S"))))
 
-def get_sheet():
+def get_sheet(sheetname):
     scope = [
         'https://spreadsheets.google.com/feeds',
         'https://www.googleapis.com/auth/drive'
@@ -29,4 +29,4 @@ def get_sheet():
     creds = sac.from_json_keyfile_name("growtopicsgclient.json", scope)
     google_client = gspread.authorize(creds)
     sheet = google_client.open_by_key("1AdopKs21DHR7DYmg5qT5K3-uKvSifhnWnAh1HfPwFTk")
-    return sheet.worksheet("Vault")
+    return sheet.worksheet(sheetname)
