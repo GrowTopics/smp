@@ -69,7 +69,7 @@ join_request_embed = {
 
 profile_embed = {
     "title" : "%%minecraft_username%%'s Profile",
-    "content" : "Profile Content Unable to Load for %%minecraft_username%%",
+    "content" : "**Diamond Count** : `%%diamond_count%%`\n**War Count** : `%%war_count%%`\n**Team Name** : `%%team_name%%`\n**Team Owner** : `%%team_owner%%`\n**Rank** : `%%rank%%`\n**Home Town** : `%%home_town%%`\n**Towns Owned** : `%%towns_owned%%`\n\n**Profile Description** : `%%description%%`\n(Change this by using the `.setdescription <description>` command).",
     "colour" : C.green(),
     "footer" : "Generated in %%gen_dura%% Seconds"
 }
