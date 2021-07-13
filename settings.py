@@ -42,12 +42,12 @@ ping_embed = {
     "colour" : C.orange()
 }
 
-#Shows when user checks profile
-profile_embed = {
+#Shows when user checks vault/balance
+vault_embed = {
     "title" : "%%mc_username%%'s Profile",
     "content" : "**Diamond Count** : `%%diamond_count%%`",
     "colour" : C.purple(),
-    "footer" : "User ID: %%userid%%"
+    "footer" : "User ID: %%userid%% | Generated in %%gen_dura%% seconds"
 }
 
 #This embed is a response  when user successfully requests to Join TheSMP
@@ -65,4 +65,11 @@ join_request_embed = {
     "colour" : C.green(),
     "footer" : "Time of Request: %%server_time%%",
     "channel_id" : 845476323005956116
+}
+
+profile_embed = {
+    "title" : "%%minecraft_username%%'s Profile",
+    "content" : "Profile Content Unable to Load for %%minecraft_username%%",
+    "colour" : C.green(),
+    "footer" : "Generated in %%gen_dura%% Seconds"
 }

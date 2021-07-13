@@ -56,18 +56,12 @@ async def req_join(ctx):
     embed.set_footer(text=settings.join_response_embed["footer"].replace("%%server_time%%",datetime.datetime.now().strftime("%c")))
     await ctx.send(embed=embed)
 
-@client.command(name='vault',aliases=['balance','bal','p','profile'])
+@client.command(name='vault',aliases=['balance','bal'])
 async def check_balance(ctx,useriden=None):
     async with ctx.typing():
         if useriden == None:
             await ctx.send("No User Given")
             return
-
-        sheet = get_sheet("Vault").get_all_values()[1:]
-        userids = [i[0] for i in sheet]
-        mc_usernames = [i[1] for i in sheet]
-        dmnd_counts = [i[2] for i in sheet]
-
 
         if useriden == "me":
             userid = ctx.author.id
@@ -77,22 +71,39 @@ async def check_balance(ctx,useriden=None):
                 userid = user.id
             except Exception as e:
                 print(e)
-                await ctx.send("Member not Seen")
+                await ctx.send("Member not Seen or Invalid member")
                 return
-        try:
-            index = userids.index(str(userid))
-        except ValueError:
-            await ctx.send("Member not Found")
-            return
-        mc_username = mc_usernames[index]
-        dmnd_count = dmnd_counts[index]
+        vals,gen_dura = get_user_values(userid)
+        mc_username = vals[1]
+        dmnd_count = vals[2]
+
         embed = discord.Embed(
-            title = settings.profile_embed["title"].replace("%%mc_username%%",mc_username),
-            description = settings.profile_embed['content'].replace("%%diamond_count%%",dmnd_count),
-            colour = settings.profile_embed['colour']
+            title = settings.vault_embed["title"].replace("%%mc_username%%",mc_username),
+            description = settings.vault_embed['content'].replace("%%diamond_count%%",dmnd_count),
+            colour = settings.vault_embed['colour']
         )
-        embed.set_footer(text=settings.profile_embed['footer'].replace("%%userid%%",str(userid)))
+        embed.set_footer(text=settings.vault_embed['footer'].replace("%%userid%%",str(userid)).replace("%%gen_dura%%",str(gen_dura)))
     await ctx.send(embed=embed)
+
+@client.command(name='profile',aliases=['p','stats'])
+async def check_balance(ctx,useriden=None):
+    async with ctx.typing():
+        if useriden == "me" or useriden == None:
+            userid = ctx.author.id
+        else:
+            try:
+                user = await commands.MemberConverter().convert(ctx,useriden)
+                userid = user.id
+            except Exception as e:
+                print(e)
+                await ctx.send("Member not Seen or Invalid member")
+                return
+        vals,gen_dura = get_user_values(userid)
+    if vals==False:
+        await ctx.send("Member not in SMP")
+    else:
+        await generate_profile(ctx,vals,gen_dura)
+
 
 client.run("ODYzMzU0MTcwODQ5MjMwODQ4.YOlrOg.vQ6YLIxVnEouNdD271tKXiW9Gx8")
 #client.run(os.getenv('token'))
