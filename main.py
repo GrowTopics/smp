@@ -104,6 +104,32 @@ async def check_balance(ctx,useriden=None):
     else:
         await generate_profile(ctx,vals,gen_dura)
 
+@client.command("set")
+async def set_cmd(ctx,to_change=None):
+    to_change = to_change.lower()
+    avail_change = ["description","desc"]
+    if to_change not in avail_change:
+        await ctx.send("You **Cannot** set this...")
+        return
+    elif to_change in ["description","desc"]:
+        sheet = get_sheet("Vault")
+        users = sheet.col_values(1)
+        if str(ctx.author.id) not in users:
+            await ctx.send("You are NOT in **The SMP**")
+            return
+        value = await generate_prompt(client,ctx,"**Send** your Description **__HERE__**",60)
+        index = users.index(str(ctx.author.id))+1
+        try:
+            start = time.time()
+            prev_desc = sheet.acell(f"J{index}").value
+            sheet.update(f"J{index}",value)
+        except Exception as err:
+            await ctx.send(embed=discord.Embed(title="An Error Occurred...",description=err,colour=discord.Colour.red()))
+            return
+        await ctx.send(embed=discord.Embed(
+            title = settings.set_description["title"],
+            description = settings.set_description["content"].replace("%%old_desc%%",prev_desc).replace("%%cur_desc%%",value),
+            colour = settings.set_description["colour"]
+        ).set_footer(text=settings.set_description["footer"].replace("%%gen_dura%%",str(round(time.time()-start,4)))))
 
-client.run("ODYzMzU0MTcwODQ5MjMwODQ4.YOlrOg.vQ6YLIxVnEouNdD271tKXiW9Gx8")
-#client.run(os.getenv('token'))
+client.run(os.getenv('token'))

@@ -67,9 +67,18 @@ join_request_embed = {
     "channel_id" : 845476323005956116
 }
 
+#Shows whwn user check profile
 profile_embed = {
     "title" : "%%minecraft_username%%'s Profile",
-    "content" : "**Diamond Count** : `%%diamond_count%%`\n\n**War Count** : `%%war_count%%`\n**Team Name** : `%%team_name%%`\n**Team Owner** : `%%team_owner%%`\n**Rank** : `%%rank%%`\n**Home Town** : `%%home_town%%`\n**Towns Owned** : `%%towns_owned%%`\n\n**Profile Description** : `%%description%%`\n\n(Change this by using the `.setdescription <description>` command).",
+    "content" : f"**Diamond Count** : `%%diamond_count%%`\n\n**War Count** : `%%war_count%%`\n**Team Name** : `%%team_name%%`\n**Team Owner** : `%%team_owner%%`\n**Rank** : `%%rank%%`\n**Home Town** : `%%home_town%%`\n**Towns Owned** : `%%towns_owned%%`\n\n**Profile Description** : `%%description%%`\n\n(Change this by using the `{prefix}set description` command).",
     "colour" : C.green(),
     "footer" : "Generated in %%gen_dura%% Seconds"
+}
+
+#Shows when user successfully chages/sets their Description
+set_description = {
+    "title" : "Description has been set Successfully",
+    "content" : "❎ **Previous Description:**\n```\n%%old_desc%%\n```\n✅ **Current Description:**\n```\n%%cur_desc%%\n```",
+    "footer" : "Generated in %%gen_dura%% Seconds",
+    "colour" : C.gold()
 }

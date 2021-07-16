@@ -56,5 +56,12 @@ async def generate_profile(ctx,vals,gen_dura):
             description = desc,
             colour = settings.profile_embed["colour"]
         )
-        embed.set_footer(text=settings.profile_embed["footer"].replace("%%gen_dura%%",str(gen_dura)))
+        embed.set_footer(text=settings.profile_embed["footer"].replace("%%gen_dura%%",str(gen_dura)[:5]))
     await ctx.send(embed=embed)
+
+async def generate_prompt(client,ctx,message,timeout,check=None):
+    if check == None:
+        check = lambda m:m.author==ctx.author
+    p = await ctx.send(f"{message}\n*Awaiting {ctx.author.name}*...\nTimeout: {timeout} seconds")
+    rawinput = await client.wait_for('message',check=check)
+    return rawinput.content
