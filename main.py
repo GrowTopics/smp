@@ -105,5 +105,4 @@ async def check_balance(ctx,useriden=None):
         await generate_profile(ctx,vals,gen_dura)
 
 
-client.run("ODYzMzU0MTcwODQ5MjMwODQ4.YOlrOg.vQ6YLIxVnEouNdD271tKXiW9Gx8")
-#client.run(os.getenv('token'))
+client.run(os.getenv('token'))
