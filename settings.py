@@ -45,7 +45,7 @@ ping_embed = {
 #Shows when user checks vault/balance
 vault_embed = {
     "title" : "%%mc_username%%'s Profile",
-    "content" : "**Diamond Count** : `%%diamond_count%%`",
+    "content" : "**JE Bank Balance** : `%%diamond_count%%`",
     "colour" : C.purple(),
     "footer" : "User ID: %%userid%% | Generated in %%gen_dura%% seconds"
 }
@@ -70,7 +70,7 @@ join_request_embed = {
 #Shows whwn user check profile
 profile_embed = {
     "title" : "%%minecraft_username%%'s Profile",
-    "content" : f"**Diamond Count** : `%%diamond_count%%`\n\n**War Count** : `%%war_count%%`\n**Team Name** : `%%team_name%%`\n**Team Owner** : `%%team_owner%%`\n**Rank** : `%%rank%%`\n**Home Town** : `%%home_town%%`\n**Towns Owned** : `%%towns_owned%%`\n\n**Profile Description** : `%%description%%`\n\n(Change this by using the `{prefix}set description` command).",
+    "content" : f"**JE Bank Balance** : `%%diamond_count%%`\n\n**War Count** : `%%war_count%%`\n**Team Name** : `%%team_name%%`\n**Team Owner** : `%%team_owner%%`\n**Rank** : `%%rank%%`\n**Home Town** : `%%home_town%%`\n**Towns Owned** : `%%towns_owned%%`\n\n**Profile Description** : `%%description%%`\n\n(Change this by using the `{prefix}set description` command).",
     "colour" : C.green(),
     "footer" : "Generated in %%gen_dura%% Seconds"
 }
